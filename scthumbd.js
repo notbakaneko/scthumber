@@ -29,25 +29,25 @@ var thumber = scThumber({
       pixelScale: 2
     },
     // Beatmap card thumbnail
-    // 400x100 (800x200 @2x)
+    // 400x140 (800x280 @2x)
     'card': {
       width: 400,
-      height: 100
+      height: 140
     },
     'card@2x': {
       width: 400,
-      height: 100,
+      height: 140,
       pixelScale: 2
     },
     // Beatmap list thumbnail
-    // 80x50 (160x100 @2x)
+    // 150x150 (300x300 @2x)
     'list': {
-      width: 80,
-      height: 50
+      width: 150,
+      height: 150
     },
     'list@2x': {
-      width: 80,
-      height: 50,
+      width: 150,
+      height: 150,
       pixelScale: 2
     },
   }
