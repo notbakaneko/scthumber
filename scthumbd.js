@@ -53,7 +53,7 @@ var thumber = scThumber({
   }
 });
 
-const workers = process.env.WORKERS || require('os').cpus().length;
+const workers = process.env.WORKERS ?? require('os').cpus().length;
 const port = 4001;
 
 if (cluster.isMaster) {
