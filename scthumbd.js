@@ -54,7 +54,7 @@ var thumber = scThumber({
 });
 
 const workers = process.env.WORKERS ?? require('os').cpus().length;
-const port = 4001;
+const port = process.env.PORT ?? 4001;
 
 if (cluster.isMaster) {
   console.log(`${'[m]'.red} ${'scthumbd %s'.yellow}`, process.env.npm_package_version);
