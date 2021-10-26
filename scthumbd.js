@@ -1,10 +1,10 @@
-var express = require('express'),
+const express = require('express'),
     cluster = require('cluster'),
     colors = require('colors'),
     util = require('util');
 
-var scThumber = require('./lib/scthumber');
-var thumber = scThumber({
+const scThumber = require('./lib/scthumber');
+const thumber = scThumber({
   presets: {
     // Beatmap cover
     // 900x250 (1800x500 @2x)
@@ -70,7 +70,7 @@ if (cluster.isMaster) {
     cluster.fork();
   });
 } else {
-  var app = express();
+  const app = express();
 
   app.get('/', function(req, res) {
     res.send(util.format("scthumbd %s\n", process.env.npm_package_version));
@@ -79,7 +79,7 @@ if (cluster.isMaster) {
   app.get('/optim/*', thumber.optimize);
   app.get('/stats', thumber.get_stats);
 
-  var server = app.listen(port);
+  app.listen(port);
 
   console.log(`${'[w]'.magenta} Worker ${'%s'.green} started...`, cluster.worker.id);
 }
