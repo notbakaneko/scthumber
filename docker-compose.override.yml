@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  http:
+    # See instructions if using a custom domain for dev.
+    # extra_hosts:
+    #   - "osu-web.test:192.168.65.x"
+    ports:
+      - "${HTTP_PORT:-4001}:4001"
+    volumes:
+      # override packaged /app for dev
+      - .:/app
+      # use node_modules from the container, not the host.
+      - node_modules:/app/node_modules
+
+volumes:
+  node_modules:
