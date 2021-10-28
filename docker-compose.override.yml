@@ -7,6 +7,7 @@ services:
     #   - "osu-web.test:192.168.65.x"
     ports:
       - "${HTTP_PORT:-4001}:4001"
+    tty: true
     volumes:
       # override packaged /app for dev
       - .:/app
