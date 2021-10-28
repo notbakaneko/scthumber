@@ -37,6 +37,8 @@ npm run scthumbd
 
 ## Docker
 
+This assumes Docker Compose V2 is used - replace `docker compose` with `docker-compose` if using Docker Compose V1.
+
 Running for development:
 ```
 docker compose up
