@@ -35,6 +35,7 @@
     "scthumbd": "node scthumbd.js",
     "prepublish": "npm prune"
   },
+  "type": "module",
   "optionalDependencies": {},
   "engines": {
     "node": ">=14.0.0"

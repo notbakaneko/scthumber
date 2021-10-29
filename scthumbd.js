@@ -1,9 +1,9 @@
-const express = require('express'),
-    cluster = require('cluster'),
-    colors = require('colors'),
-    util = require('util');
+import 'colors';
+import cluster from 'cluster';
+import express from 'express';
+import util from 'util';
+import scThumber from './lib/scthumber.js';
 
-const scThumber = require('./lib/scthumber');
 const thumber = scThumber({
   presets: {
     // Beatmap cover
