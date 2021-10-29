@@ -20,7 +20,7 @@ npm install # or yarn
 ```
 
 ## Configuration
-See `var thumber` in `scthumbd.js` for now...
+See `const thumber` in `scthumbd.js` for now...
 
 ## Running
 ```
