@@ -78,7 +78,6 @@ if (cluster.isMaster) {
   })
   app.get('/thumb/*', thumber.thumbnail);
   app.get('/optim/*', thumber.optimize);
-  app.get('/stats', thumber.get_stats);
 
   app.listen(port);
 
