@@ -20,7 +20,7 @@
   "version": "0.7.2021102901",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ppy/scthumber.git"
+    "url": "https://github.com/ppy/scthumber.git"
   },
   "main": "./scthumbd.js",
   "dependencies": {
