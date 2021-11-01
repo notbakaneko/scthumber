@@ -1,4 +1,4 @@
-FROM node:16.12.0-bullseye-slim
+FROM node:16-bullseye-slim
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
