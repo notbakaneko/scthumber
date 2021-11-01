@@ -35,13 +35,22 @@ npm run scthumbd
 
 ## Docker
 
-This assumes Docker Compose V2 is used - replace `docker compose` with `docker-compose` if using Docker Compose V1.
+The entire Docker section assumes:
+- Docker Compose V2 is used - replace `docker compose` with `docker-compose` if using Docker Compose V1.
+- using Docker Desktop - there may be differences in the base host image and how container networking is exposed with non-Desktop Docker or other container runtimes.
+
+To just build an image:
+
+    docker build -t <repository_name>:<tag> .
+
+
+### Development
 
 Running for development:
 ```
 docker compose up
 ```
-will mount the local directory to the container; code changes will be reflected when the contianer is restarted.
+will mount the local directory to the container; code changes will be reflected when the container is restarted.
 The container will accept requests on port 4001. To use a different port, provide a `HTTP_PORT` env, e.g.:
 
 ```
@@ -54,15 +63,9 @@ To override settings inside the container such as the number of worker or listen
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up
 ```
 
-
-To just build an image
-```
-docker build -t <repository_name>:<tag> .
-```
-
 ### Networking Notes
 
-This assumes the default Docker bridge networking is used; different networking modes and container runtimes may require different configuration.
+This assumes the default Docker Desktop bridge networking is used; different networking modes and container runtimes may require different configuration.
 
 scthumber needs to be able to download the image source for thumbnailing.
 If using a custom internal domain that doesn't resolve to a public IP address for the image origin, you will need to add a mapping to the container to resolve.
