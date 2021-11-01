@@ -3,4 +3,8 @@ version: '3.4'
 services:
   http:
     build: .
-    tty: true
+    ports:
+      - "${HTTP_PORT:-4001}:4001"
+    volumes:
+      # override packaged /app for dev
+      - .:/app
