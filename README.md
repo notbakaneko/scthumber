@@ -14,7 +14,7 @@ sharp
 
 On a Debian/Ubuntu system:
 
-    npm install # or yarn --frozen-lockfile
+    npm ci --no-optional # or yarn --frozen-lockfile
 
 
 ## Configuration
@@ -65,7 +65,7 @@ The `node_modules` used are not platform binary compatible - `node_modules` in t
 
 While working in the container, dependencies should be updated via `docker compose run`
 
-    docker compose run --rm http yarn
+    docker compose run --rm http npm ci --no-optional
 
 If you want to use the local `node_modules`, you can override the existing volume mount:
 
