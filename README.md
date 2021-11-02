@@ -46,7 +46,7 @@ To just build an image:
 
 ### Development
 
-The Docker Compose configuration is provided for development convenience. Usage for production or combination with other projects is outside the scope of the provided configuration.
+The Docker Compose configuration is provided for development convenience. Usage for production or combination with other projects is outside the scope of the provided configuration. Builds for deployment _should not_ be using the provided Docker Compose configuration.
 
 Running for development:
 
@@ -57,7 +57,20 @@ The container will accept requests on port 4001. To use a different port, provid
 
     HTTP_PORT=8001 docker compose up
 
+
+### Overriding settings
+
 To override settings inside the container such as the number of workers or listening port, it is recommended to create use the `docker-compose.override.yml` file with the extra settings. Docker will automatically apply and merge settings from the override file when running `docker compose`.
+
+Local development environment settings should be placed in the override file.
+
+To connect to an existing container network, specify in `docker-compose.override.yml`, e.g.:
+
+    networks:
+      default:
+        external: true
+        name: osu-web
+
 
 ### node_modules
 
@@ -72,11 +85,25 @@ If you want to use the local `node_modules`, you can override the existing volum
     ./node_modules:/app/node_modules
 
 
-### Networking Notes
+
+
+## Common issues
+
+### Cannot start sharp
+    Something went wrong installing the "sharp" module
+
+    Cannot find module '../build/Release/sharp-linux-x64.node'
+    Require stack:
+    - /app/node_modules/sharp/lib/sharp.js
+
+`sharp` downloads and uses pre-built binaries by default; these builds are not compatible between platform architectures. Reinstall the packages. When using Docker, it is recommended to have a `node_modules` volume local to the container.
+
+
+### Cannot connect to custom domain
 
 This assumes the default Docker Desktop bridge networking is used and the remote host is accessible through the bridge network; different networking modes and container runtimes may require different configuration.
 
-scthumber needs to be able to download the image source for thumbnailing.
+`scthumber` needs to be able to download the image source for thumbnailing.
 When using a custom internal domain, you may need to add a mapping to the container to resolve.
 
 e.g. If `osu-web.test` resolves to `127.0.0.1` on the host, it will also resolve to `127.0.0.1` in the container
