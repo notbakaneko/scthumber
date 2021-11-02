@@ -9,6 +9,8 @@ ADD . /app
 
 WORKDIR /app
 
+ENV NODE_ENV=production
+
 RUN yarnpkg --frozen-lockfile
 
 CMD ["yarnpkg", "scthumbd"]

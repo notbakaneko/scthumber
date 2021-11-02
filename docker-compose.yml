@@ -3,6 +3,8 @@ version: '3.4'
 services:
   http:
     build: .
+    environment:
+      NODE_ENV: development
     ports:
       - "${HTTP_PORT:-4001}:4001"
     volumes:
