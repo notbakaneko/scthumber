@@ -5,11 +5,8 @@ services:
   http:
     tty: true
     # See instructions if using a custom domain for dev.
-    extra_hosts:
-      - "osu-web.test:192.168.65.x"
-    volumes:
-      # use node_modules from the container, not the host.
-      - node_modules:/app/node_modules
-
-volumes:
-  node_modules:
+#    extra_hosts:
+#      - "osu-web.test:192.168.65.x"
+#    volumes:
+#      # To use node_modules from the host instead of the container.
+#      - ./node_modules:/app/node_modules
