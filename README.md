@@ -14,7 +14,7 @@ sharp
 
 On a Debian/Ubuntu system:
 ```
-npm ci --no-optional # or yarn --frozen-lockfile
+npm ci --no-optional
 ```
 
 ## Configuration
