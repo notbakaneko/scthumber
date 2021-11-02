@@ -2,8 +2,7 @@ FROM node:16-bullseye-slim
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  python \
-  yarnpkg
+  python
 
 ADD --chown=node:node . /app
 
@@ -11,6 +10,6 @@ WORKDIR /app
 USER node
 ENV NODE_ENV=production
 
-RUN yarnpkg --frozen-lockfile
+RUN npm ci --no-optional
 
-CMD ["yarnpkg", "scthumbd"]
+CMD ["npm", "run", "scthumbd"]
