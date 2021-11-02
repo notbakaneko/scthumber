@@ -8,3 +8,8 @@ services:
     volumes:
       # override packaged /app for dev
       - .:/app
+      # use node_modules from the container, not the host.
+      - node_modules:/app/node_modules
+
+volumes:
+  node_modules:
