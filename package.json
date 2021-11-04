@@ -32,8 +32,7 @@
     "smartcrop": "^2.0.x"
   },
   "scripts": {
-    "scthumbd": "node scthumbd.js",
-    "prepublish": "npm prune"
+    "scthumbd": "node scthumbd.js"
   },
   "type": "module",
   "optionalDependencies": {},
