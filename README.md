@@ -25,12 +25,14 @@ See `const thumber` in `scthumbd.js` for now...
     yarn scthumbd
 
 
-
 ## Envrionment variables
 
-`PORT` - listening port, defaults to 4001.
-
-`WORKERS` - number of worker processes to spawn, defaults to number of cpus detected.
+Variable          | Description
+----------------- | ------------
+DD_AGENT_HOST     | statsd host; defaults to `undefined` which sends to `127.0.0.1`
+DD_DOGSTATSD_PORT | statsd port; defaults to `8125`
+PORT              | listening port, defaults to 4001.
+WORKERS           | number of worker processes to spawn, defaults to number of cpus
 
 
 ## Docker
@@ -83,8 +85,6 @@ While working in the container, dependencies should be updated via `docker compo
 If you want to use the local `node_modules`, you can override the existing volume mount:
 
     ./node_modules:/app/node_modules
-
-
 
 
 ## Common issues
