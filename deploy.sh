@@ -4,7 +4,7 @@ set -u
 set -e
 
 command -v yarn || npm install -g yarn
-yarn
+yarn --frozen-lockfile --ignore-optional
 
 # perform deployment
 outdir="/deploy/scthumber-$(date "+%Y%m%dT%H%M%S")"
