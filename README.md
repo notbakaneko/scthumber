@@ -14,7 +14,7 @@ sharp
 
 On a Debian/Ubuntu system:
 
-    npm install # or yarn --frozen-lockfile --ignore-optional
+    yarn --frozen-lockfile --ignore-optional
 
 
 ## Configuration
@@ -22,7 +22,7 @@ See `const thumber` in `scthumbd.js` for now...
 
 ## Running
 
-    npm run scthumbd
+    yarn scthumbd
 
 
 
