@@ -118,3 +118,11 @@ If using `docker compose`, configure `extra_hosts` in a `docker-compose.override
 If using `docker run`, use the `--add-host` flag:
 
     docker run --add-host=<hostname>:<ip> --rm scthumber
+
+
+### Missing Python when installing node packages
+
+    gyp ERR! find Python You need to install the latest version of Python.
+
+The Docker image does not include Python, use the `--ignore-optional` flag to to skip the optional dependencies.
+Alternatively, the error can be ignored.

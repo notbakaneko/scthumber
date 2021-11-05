@@ -10,7 +10,8 @@ services:
     volumes:
       # override packaged /app for dev
       - .:/app
-      # node_modules may not be platform compatible, use the container's.
+      # node_modules may not be platform compatible,
+      # use the container's version stored in the volume instead of the above mount.
       - node_modules:/app/node_modules
 
 volumes:
