@@ -1,5 +1,6 @@
 *.log
 *.pid
+/docker-compose.override.yml
 logs
 node_modules
 npm-debug.log
