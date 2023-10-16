@@ -57,7 +57,7 @@ const thumber = scThumber({
 const workers = process.env.WORKERS ?? os.cpus().length;
 const port = process.env.PORT ?? 4001;
 
-if (cluster.isPrimary || workers <= 1) {
+if (cluster.isPrimary) {
   console.log(`${'[m]'.red} ${'scthumbd %s'.yellow}`, process.env.npm_package_version);
   console.log(`${'[m]'.red} Listening on port ${'%s'.green}...`, port);
 }
@@ -83,5 +83,5 @@ if (cluster.isPrimary && workers > 1) {
 
   app.listen(port);
 
-  console.log(`${'[w]'.magenta} Worker ${'%s'.green} started...`, cluster.worker?.id || 0);
+  console.log(`${'[w]'.magenta} Worker ${'%s'.green} started...`, cluster.worker?.id ?? 1);
 }
