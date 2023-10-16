@@ -57,11 +57,13 @@ const thumber = scThumber({
 const workers = process.env.WORKERS ?? os.cpus().length;
 const port = process.env.PORT ?? 4001;
 
-if (cluster.isPrimary && workers > 1) {
+if (cluster.isPrimary || workers <= 1) {
   console.log(`${'[m]'.red} ${'scthumbd %s'.yellow}`, process.env.npm_package_version);
   console.log(`${'[m]'.red} Listening on port ${'%s'.green}...`, port);
-  console.log(`${'[m]'.red} Starting ${'%s'.green} workers...`, workers);
+}
 
+if (cluster.isPrimary && workers > 1) {
+  console.log(`${'[m]'.red} Starting ${'%s'.green} workers...`, workers);
   for (let i = 0; i < workers; i++) {
     cluster.fork();
   }
@@ -81,5 +83,5 @@ if (cluster.isPrimary && workers > 1) {
 
   app.listen(port);
 
-  console.log(`${'[w]'.magenta} Worker ${'%s'.green} started...`, cluster.worker.id);
+  console.log(`${'[w]'.magenta} Worker ${'%s'.green} started...`, cluster.worker?.id || 0);
 }
